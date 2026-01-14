@@ -1,0 +1,169 @@
+Metadata-Version: 2.4
+Name: yt-music-cli
+Version: 1.0.0
+Summary: A terminal-based YouTube Music player for Linux
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/yourusername/yt-music-cli
+Project-URL: Issues, https://github.com/yourusername/yt-music-cli/issues
+Keywords: youtube,music,terminal,cli,player,mpv
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: ytmusicapi>=1.0.0
+Requires-Dist: yt-dlp>=2023.0.0
+
+# 🎵 yt-music
+
+A terminal-based YouTube Music player for Linux. Search, queue, and play music directly from your terminal.
+
+![Terminal Demo](https://img.shields.io/badge/platform-Linux-blue) ![Python](https://img.shields.io/badge/python-3.8+-green)
+
+## Features
+
+- 🔍 Search songs, albums, and playlists from YouTube Music
+- ▶️ Stream audio directly (no downloads)
+- 📋 Queue management with auto-play
+- ⏯️ Playback controls (pause, seek, volume, skip)
+- 🎨 Colorful terminal interface
+- ⌨️ Simple keyboard commands
+
+## Requirements
+
+- Python 3.8+
+- mpv (audio player)
+- yt-dlp (stream extraction)
+
+## Installation
+
+### Quick Install
+
+```bash
+git clone <repo> yt-music-cli
+cd yt-music-cli
+chmod +x install.sh
+./install.sh
+```
+
+### Manual Install
+
+1. Install system dependencies:
+```bash
+# Debian/Ubuntu
+sudo apt install mpv
+
+# Fedora
+sudo dnf install mpv
+
+# Arch
+sudo pacman -S mpv
+```
+
+2. Install the package:
+```bash
+cd yt-music-cli
+pip install --break-system-packages --user .
+```
+
+### Alternative: Install with pipx (recommended)
+
+```bash
+sudo apt install mpv
+pipx install .
+```
+
+## Usage
+
+```bash
+yt-music
+```
+
+### Commands
+
+| Command | Shortcut | Description |
+|---------|----------|-------------|
+| `search <query>` | `s` | Search for songs |
+| `sa <query>` | | Search for albums |
+| `sp <query>` | | Search for playlists |
+| `play <num>` | `p` | Play track from results |
+| `add <num>` | `a` | Add track to queue |
+| `playall` | `pa` | Queue all results and play |
+| `pause` | `space` | Toggle pause/play |
+| `next` | `n` | Next track |
+| `prev` | `b` | Previous track |
+| `stop` | | Stop playback |
+| `queue` | `q` | Show current queue |
+| `clear` | `cq` | Clear queue |
+| `+` | | Seek forward 10s |
+| `-` | | Seek backward 10s |
+| `v <0-100>` | | Set volume |
+| `help` | `h` | Show help |
+| `exit` | `x` | Exit player |
+
+### Quick Start Example
+
+```
+$ yt-music
+
+> search daft punk
+  1. Get Lucky
+     Daft Punk • 6:09
+  2. Around The World
+     Daft Punk • 7:09
+  ...
+
+> play 1
+  Loading: Get Lucky...
+
+> add 2
+  Added to queue: Around The World
+
+> queue
+  ▶ 1. Get Lucky
+    2. Around The World
+
+> next
+```
+
+## Tips
+
+- Just type anything to search (no need to type `search`)
+- Use `cls` to clear the screen
+- Press Ctrl+C and then type `exit` to quit cleanly
+- The player auto-advances through your queue
+
+## Uninstall
+
+```bash
+pip uninstall yt-music-cli
+```
+
+## Troubleshooting
+
+**"mpv not found"**: Install mpv with your package manager
+
+**"yt-dlp not found"**: 
+```bash
+pip install yt-dlp --break-system-packages
+```
+
+**"yt-music: command not found"**: Add `~/.local/bin` to your PATH:
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Playback issues**: Make sure you have a working internet connection and that YouTube isn't blocking your region
+
+## License
+
+MIT License - feel free to modify and share!

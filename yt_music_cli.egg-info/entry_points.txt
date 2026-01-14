@@ -1,0 +1,2 @@
+[console_scripts]
+yt-music = yt_music_cli.player:main

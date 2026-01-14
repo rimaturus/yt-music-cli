@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+yt_music_cli/__init__.py
+yt_music_cli/player.py
+yt_music_cli.egg-info/PKG-INFO
+yt_music_cli.egg-info/SOURCES.txt
+yt_music_cli.egg-info/dependency_links.txt
+yt_music_cli.egg-info/entry_points.txt
+yt_music_cli.egg-info/requires.txt
+yt_music_cli.egg-info/top_level.txt
