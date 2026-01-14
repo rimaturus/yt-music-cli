@@ -1,4 +1,4 @@
-# 🎵 yt-music
+# 🎵 yt-music-cli
 
 A terminal-based YouTube Music player for Linux. Search, queue, and play music directly from your terminal.
 
@@ -25,7 +25,7 @@ A terminal-based YouTube Music player for Linux. Search, queue, and play music d
 
 ```bash
 git clone <this repo>
-cd yt-music
+cd yt-music-cli
 chmod +x install.sh
 ./install.sh
 ```
@@ -46,7 +46,7 @@ sudo pacman -S mpv
 
 2. Install the package:
 ```bash
-cd yt-music
+cd yt-music-cli
 pip install --break-system-packages --user .
 ```
 
@@ -60,7 +60,7 @@ pipx install .
 ## Usage
 
 ```bash
-yt-music
+yt-music-cli
 ```
 
 ### Commands
@@ -88,7 +88,7 @@ yt-music
 ### Quick Start Example
 
 ```
-$ yt-music
+$ yt-music-cli
 
 > search daft punk
   1. Get Lucky
@@ -120,7 +120,7 @@ $ yt-music
 ## Uninstall
 
 ```bash
-pip uninstall yt-music-cli
+pip uninstall yt-music-cli-cli
 ```
 
 ## Troubleshooting
@@ -132,7 +132,7 @@ pip uninstall yt-music-cli
 pip install yt-dlp --break-system-packages
 ```
 
-**"yt-music: command not found"**: Add `~/.local/bin` to your PATH:
+**"yt-music-cli: command not found"**: Add `~/.local/bin` to your PATH:
 ```bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
