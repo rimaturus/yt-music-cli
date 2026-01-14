@@ -24,8 +24,8 @@ A terminal-based YouTube Music player for Linux. Search, queue, and play music d
 ### Quick Install
 
 ```bash
-git clone <repo> yt-music-cli
-cd yt-music-cli
+git clone <this repo>
+cd yt-music
 chmod +x install.sh
 ./install.sh
 ```
@@ -46,7 +46,7 @@ sudo pacman -S mpv
 
 2. Install the package:
 ```bash
-cd yt-music-cli
+cd yt-music
 pip install --break-system-packages --user .
 ```
 
