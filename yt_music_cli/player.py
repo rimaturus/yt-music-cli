@@ -110,8 +110,7 @@ class YTMusicPlayer:
             cmd = [
                 'yt-dlp',
                 '-f', 'bestaudio',
-                '-g',
-                '--no-warnings',
+                '--cookies-from-browser Firefox --extrator-args "youtube:player_client=default,-android_sdkless" --remote-components ejs:github',
                 f'https://music.youtube.com/watch?v={video_id}'
             ]
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
