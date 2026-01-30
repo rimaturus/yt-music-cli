@@ -28,13 +28,41 @@ else
     echo "⚠️  Please install mpv manually for your distribution"
 fi
 
-# Install the package
-echo "🐍 Installing yt-music..."
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-pip install --break-system-packages --user "$SCRIPT_DIR"
-
+# Ask user about virtual environment
 echo ""
-echo "✅ Installation complete!"
+read -p "Do you want to create a virtual environment for installation? (y/n): " use_venv
+echo ""
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ "$use_venv" =~ ^[Yy]$ ]]; then
+    # Create and use virtual environment
+    VENV_DIR="$HOME/.yt-music-venv"
+    echo "📁 Creating virtual environment at $VENV_DIR..."
+    python3 -m venv "$VENV_DIR"
+
+    echo "🐍 Installing yt-music in virtual environment..."
+    "$VENV_DIR/bin/pip" install "$SCRIPT_DIR"
+
+    # Create wrapper script in ~/.local/bin
+    mkdir -p "$HOME/.local/bin"
+    cat > "$HOME/.local/bin/yt-music" << 'WRAPPER'
+#!/bin/bash
+exec "$HOME/.yt-music-venv/bin/yt-music" "$@"
+WRAPPER
+    chmod +x "$HOME/.local/bin/yt-music"
+
+    echo ""
+    echo "✅ Installation complete (using virtual environment at $VENV_DIR)!"
+else
+    # Install without virtual environment
+    echo "🐍 Installing yt-music..."
+    pip install --break-system-packages --user "$SCRIPT_DIR"
+
+    echo ""
+    echo "✅ Installation complete!"
+fi
+
 echo ""
 echo "Usage:"
 echo "  yt-music            # Launch from anywhere"
